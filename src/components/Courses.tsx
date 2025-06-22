@@ -2,8 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Award } from "lucide-react";
+import { CourseModal } from "./CourseModal";
+import { useState } from "react";
 
 export const Courses = () => {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+
   const courses = [
     {
       title: "Introduction to Tech",
@@ -146,7 +150,11 @@ export const Courses = () => {
                 <Button className="flex-1 bg-emerald-500 hover:bg-emerald-600">
                   Enroll Now
                 </Button>
-                <Button variant="outline" className="flex-1">
+                <Button 
+                  variant="outline" 
+                  className="flex-1"
+                  onClick={() => setSelectedCourse(course.title)}
+                >
                   Learn More
                 </Button>
               </div>
@@ -154,6 +162,12 @@ export const Courses = () => {
           ))}
         </div>
       </div>
+
+      <CourseModal
+        isOpen={!!selectedCourse}
+        onClose={() => setSelectedCourse(null)}
+        courseTitle={selectedCourse || ""}
+      />
     </section>
   );
 };
