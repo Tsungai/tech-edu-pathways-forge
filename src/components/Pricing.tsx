@@ -1,9 +1,13 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Star } from "lucide-react";
+import { CheckCircle, Star, MapPin } from "lucide-react";
+import { useGeolocation } from "@/hooks/useGeolocation";
+import { convertPrice } from "@/utils/currency";
 
 export const Pricing = () => {
+  const { country, currency, loading } = useGeolocation();
+
   const pricingTiers = [
     {
       name: "CodeStars",
@@ -65,10 +69,32 @@ export const Pricing = () => {
     }
   ];
 
+  const getDisplayPrice = (price: string) => {
+    return convertPrice(price, currency);
+  };
+
+  const getCountryFlag = (countryCode: string) => {
+    const flags: { [key: string]: string } = {
+      'ZA': '🇿🇦',
+      'ZW': '🇿🇼'
+    };
+    return flags[countryCode] || '🌍';
+  };
+
   return (
     <section id="pricing" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <MapPin className="h-5 w-5 text-emerald-600" />
+            {loading ? (
+              <span className="text-sm text-gray-600">Detecting location...</span>
+            ) : (
+              <span className="text-sm text-gray-600">
+                {getCountryFlag(country)} Prices shown in {currency}
+              </span>
+            )}
+          </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Affordable Education for Everyone
           </h2>
@@ -102,12 +128,12 @@ export const Pricing = () => {
                 </p>
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-gray-900">
-                    {tier.price}
+                    {getDisplayPrice(tier.price)}
                   </span>
                   <span className="text-gray-600">{tier.period}</span>
                 </div>
                 <p className="text-sm text-gray-600 mb-4">
-                  or {tier.upfront}
+                  or {getDisplayPrice(tier.upfront)}
                 </p>
                 <p className="text-gray-600">
                   {tier.description}
@@ -148,6 +174,11 @@ export const Pricing = () => {
           <p className="text-gray-600">
             🔄 Flexible payment plans available - contact us for custom options
           </p>
+          {currency === 'USD' && (
+            <p className="text-sm text-gray-500">
+              * Prices converted from ZAR at rate of $1 = R17
+            </p>
+          )}
         </div>
       </div>
     </section>
