@@ -17,6 +17,7 @@ interface CourseDetails {
   whatYouLearn: string[];
   outcomes: string[];
   emoji: string;
+  image: string;
 }
 
 const courseDetails: Record<string, CourseDetails> = {
@@ -38,7 +39,8 @@ const courseDetails: Record<string, CourseDetails> = {
       "Proficiency in common workplace tools",
       "Readiness to advance into specialized tech fields"
     ],
-    emoji: "📃"
+    emoji: "📃",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop"
   },
   "Software Engineering": {
     title: "Software Engineering (6 or 12 Months)",
@@ -58,7 +60,8 @@ const courseDetails: Record<string, CourseDetails> = {
       "Build a portfolio to showcase during job interviews",
       "Ready to apply for internships or junior developer roles"
     ],
-    emoji: "🚀"
+    emoji: "🚀",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop"
   },
   "Web Development": {
     title: "Web Development (6 or 12 Months)",
@@ -78,7 +81,31 @@ const courseDetails: Record<string, CourseDetails> = {
       "Build and manage online platforms for clients or businesses",
       "Stand out as a junior frontend or full-stack developer"
     ],
-    emoji: "📈"
+    emoji: "📈",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop"
+  },
+  "Web Development for Marketers": {
+    title: "Web Development for Marketers (6 or 12 Months)",
+    duration: "6 or 12 Months",
+    audience: "Digital Marketers, Content Creators, Brand Managers",
+    accreditation: "Web Design & SEO Certification",
+    overview: "Supercharge your marketing career by learning how websites are built, optimised, and maintained. This course bridges design, development, and digital strategy to empower marketers to manage or build websites that convert.",
+    whatYouLearn: [
+      "HTML & CSS for content layout and styling",
+      "JavaScript fundamentals for interactive pages",
+      "WordPress site setup and management",
+      "Webflow for no-code advanced design",
+      "SEO fundamentals and on-page optimisation",
+      "Website performance, analytics, and CRO basics"
+    ],
+    outcomes: [
+      "Build and customise websites without relying fully on developers",
+      "Implement SEO best practices for improved ranking",
+      "Launch marketing campaigns with technical confidence",
+      "Advance your career as a digital marketing specialist with web skills"
+    ],
+    emoji: "🌐",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
   },
   "IT Support": {
     title: "IT Support (6 Months)",
@@ -98,7 +125,8 @@ const courseDetails: Record<string, CourseDetails> = {
       "Hands-on troubleshooting ability",
       "Job readiness for IT support and help desk roles"
     ],
-    emoji: "🔧"
+    emoji: "🔧",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop"
   },
   "Product Manager/Owner": {
     title: "Product Manager/Owner (6 Months)",
@@ -118,7 +146,8 @@ const courseDetails: Record<string, CourseDetails> = {
       "Lead product strategy from concept to launch",
       "Qualify for roles in product management, tech startups, or consulting"
     ],
-    emoji: "📆"
+    emoji: "📆",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop"
   },
   "CodeStars (Under 18)": {
     title: "CodeStars (Youth Program)",
@@ -138,7 +167,8 @@ const courseDetails: Record<string, CourseDetails> = {
       "Interactive games, websites & projects",
       "Tech confidence and early career exposure"
     ],
-    emoji: "🧒"
+    emoji: "🧒",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop"
   }
 };
 
@@ -163,6 +193,15 @@ export const CourseModal = ({ isOpen, onClose, courseTitle }: CourseModalProps) 
         </DialogHeader>
         
         <div className="space-y-6">
+          {/* Course Image */}
+          <div className="w-full h-48 rounded-lg overflow-hidden bg-gray-100">
+            <img 
+              src={course.image} 
+              alt={course.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           {/* Course Info */}
           <div className="grid md:grid-cols-3 gap-4">
             <div className="flex items-center gap-2">

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Award } from "lucide-react";
@@ -41,6 +40,17 @@ export const Courses = () => {
       description: "Full-stack web development from frontend to backend technologies.",
       skills: ["HTML/CSS/JavaScript", "React & Node.js", "MongoDB"],
       color: "bg-purple-50 border-purple-200"
+    },
+    {
+      title: "Web Development for Marketers",
+      duration: "6-12 Months",
+      level: "Intermediate",
+      students: "42",
+      price: "R3,625.50/month",
+      upfront: "R19,995",
+      description: "Bridge design, development, and digital strategy for marketing professionals.",
+      skills: ["WordPress & Webflow", "SEO Optimization", "Marketing Analytics"],
+      color: "bg-indigo-50 border-indigo-200"
     },
     {
       title: "IT Support",
