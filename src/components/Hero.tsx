@@ -11,7 +11,7 @@ export const Hero = () => {
       <nav className="relative z-10 flex items-center justify-between p-6 max-w-7xl mx-auto">
         <div className="flex items-center space-x-2">
           <Code className="h-8 w-8 text-emerald-400" />
-          <span className="text-2xl font-bold text-white">Code and Cloud Academy</span>
+          <span className="text-2xl font-bold text-white">TechEdu Academy</span>
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#courses" className="text-gray-300 hover:text-emerald-400 transition-colors">Courses</a>
@@ -39,7 +39,7 @@ export const Hero = () => {
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Certified courses, practical training, and real-world experience. 
-                Join Code and Cloud Academy and transform your future with industry-relevant skills 
+                Join TechEdu Academy and transform your future with industry-relevant skills 
                 at affordable rates.
               </p>
             </div>
@@ -66,7 +66,7 @@ export const Hero = () => {
                 <div className="flex justify-center mb-2">
                   <Code className="h-8 w-8 text-emerald-400" />
                 </div>
-                <div className="text-2xl font-bold text-white">5+</div>
+                <div className="text-2xl font-bold text-white">13+</div>
                 <div className="text-gray-400">Tech Courses</div>
               </div>
               <div className="text-center">

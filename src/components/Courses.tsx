@@ -7,7 +7,7 @@ import { useState } from "react";
 export const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
 
-  const courses = [
+  const regularCourses = [
     {
       title: "Introduction to Tech",
       duration: "3 Months",
@@ -87,21 +87,186 @@ export const Courses = () => {
     }
   ];
 
+  const eveningPrograms = [
+    {
+      title: "Data Analyst Program",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Learn to collect, clean, analyze, and visualize data to drive business decisions.",
+      skills: ["Python & Pandas", "SQL & Databases", "Power BI/Tableau", "Statistics"],
+      color: "bg-gradient-to-br from-violet-50 to-purple-50 border-violet-300",
+      isEvening: true
+    },
+    {
+      title: "Social Media Management for Marketers",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Master social media strategy, content creation, paid ads, and analytics.",
+      skills: ["Content Strategy", "Paid Ads", "Analytics", "Canva & Video"],
+      color: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-300",
+      isEvening: true
+    },
+    {
+      title: "Full-Stack Web Development (MERN)",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Build modern web applications with React, Node.js, Express, and MongoDB.",
+      skills: ["React.js", "Node.js & Express", "MongoDB", "Deployment"],
+      color: "bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-300",
+      isEvening: true
+    },
+    {
+      title: "Digital Marketing & SEO",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Master SEO, PPC, email marketing, analytics, and conversion optimization.",
+      skills: ["SEO & Keywords", "Google Ads", "Analytics", "Content Marketing"],
+      color: "bg-gradient-to-br from-amber-50 to-orange-50 border-amber-300",
+      isEvening: true
+    },
+    {
+      title: "Project Management (Agile & Scrum)",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Learn Agile, Scrum, Kanban, risk management, and project leadership.",
+      skills: ["Agile & Scrum", "Jira & Tools", "Risk Management", "Stakeholder Mgmt"],
+      color: "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-300",
+      isEvening: true
+    },
+    {
+      title: "Business Analysis & Process Improvement",
+      duration: "5 Months",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Master requirements gathering, process mapping, and business optimization.",
+      skills: ["Requirements Gathering", "Process Mapping", "Data Modeling", "Lean & Six Sigma"],
+      color: "bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-300",
+      isEvening: true
+    }
+  ];
+
   return (
     <section id="courses" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Evening Programs Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <div className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-sm font-bold mb-4">
+              🌙 NEW: EVENING PROGRAMS FOR CAREER CHANGERS
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              5-Month Evening Programs
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Perfect for working professionals. Mon-Fri, 1 hour per day. Transform your career 
+              with our intensive evening programs designed for career changers.
+            </p>
+            <div className="mt-4 text-2xl font-bold text-violet-600">
+              R24,000 per program
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6">
+            {eveningPrograms.map((course, index) => (
+              <div 
+                key={index}
+                className={`relative p-6 rounded-2xl border-2 ${course.color} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold">
+                    {course.students}
+                  </span>
+                </div>
+                
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 pr-16">
+                    {course.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="secondary" className="text-xs">
+                      {course.level}
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      🌙 Evening
+                    </Badge>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                  {course.description}
+                </p>
+
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Clock className="h-4 w-4" />
+                    {course.duration} • Mon-Fri, 1hr
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-1 mb-2">
+                      <Award className="h-4 w-4 text-gray-600" />
+                      <span className="font-medium text-gray-700 text-sm">Skills:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      {course.skills.map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="outline" className="text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-2xl font-bold text-violet-600 pt-2">
+                    {course.price}
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <Button className="w-full bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600">
+                    Enroll Now
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => setSelectedCourse(course.title)}
+                  >
+                    View Syllabus
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Regular Courses Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Course Catalog
+            Full-Time Course Catalog
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our comprehensive range of tech courses designed to take you 
-            from beginner to job-ready professional.
+            Comprehensive tech courses designed to take you from beginner to job-ready professional.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {courses.map((course, index) => (
+          {regularCourses.map((course, index) => (
             <div 
               key={index}
               className={`p-8 rounded-2xl border-2 ${course.color} hover:shadow-xl transition-all duration-300`}
