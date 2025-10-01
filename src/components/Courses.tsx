@@ -205,8 +205,13 @@ export const Courses = () => {
               Perfect for working professionals. Mon-Fri, 1 hour per day. Transform your career 
               with our intensive evening programs designed for career changers.
             </p>
-            <div className="mt-4 text-2xl font-bold text-violet-600">
-              {getDisplayPrice("R24,000")} per program
+            <div className="mt-4 space-y-2">
+              <div className="text-2xl font-bold text-violet-600">
+                {getDisplayPrice("R4,000")}/month for 6 months
+              </div>
+              <div className="text-lg text-gray-600">
+                or {getDisplayPrice("R24,000")} upfront
+              </div>
             </div>
           </div>
 
@@ -260,8 +265,13 @@ export const Courses = () => {
                     </div>
                   </div>
 
-                  <div className="text-2xl font-bold text-violet-600 pt-2">
-                    {getDisplayPrice(course.price)}
+                  <div className="pt-2 space-y-1">
+                    <div className="text-2xl font-bold text-violet-600">
+                      {getDisplayPrice("R4,000")}/month
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      for 6 months or {getDisplayPrice("R24,000")} upfront
+                    </div>
                   </div>
                 </div>
 
@@ -309,10 +319,10 @@ export const Courses = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-emerald-600">
-                    {getDisplayPrice(course.price)}
+                    {getDisplayPrice(course.price)}/month
                   </div>
                   <div className="text-sm text-gray-600">
-                    or {getDisplayPrice(course.upfront)} upfront
+                    for 6 months or {getDisplayPrice(course.upfront)} upfront
                   </div>
                 </div>
               </div>
