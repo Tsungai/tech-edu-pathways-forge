@@ -31,6 +31,15 @@ export const Instructors = () => {
       description: "Liam is an IT infrastructure and support expert with certifications in A+, N+, and AWS Cloud Practitioner. He has trained over 500 students in IT support and networking and is known for simplifying complex concepts. Liam enjoys building gaming PCs and volunteering at local computer literacy workshops.",
       image: "/placeholder.svg",
       initials: "LW"
+    },
+    {
+      name: "Chiedza Kehle",
+      title: "UX Designer & Project Management Specialist",
+      experience: "7+ years",
+      specialties: ["UX/UI Design", "Agile", "Scrum Master"],
+      description: "Chiedza is a user experience designer and certified project management professional with over 7 years of experience leading cross-functional teams. She specializes in human-centered design and Agile methodologies, helping students master both the creative and organizational sides of tech. When not teaching, she mentors women in tech and designs accessible digital products.",
+      image: "/placeholder.svg",
+      initials: "CK"
     }
   ];
 
@@ -47,7 +56,7 @@ export const Instructors = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {instructors.map((instructor, index) => (
             <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2">
               <CardContent className="p-8 text-center">
