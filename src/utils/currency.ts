@@ -4,8 +4,8 @@ export const convertPrice = (priceInZAR: string, targetCurrency: string): string
   const numericPrice = parseFloat(priceInZAR.replace('R', '').replace(',', ''));
   
   if (targetCurrency === 'USD') {
-    // Convert ZAR to USD at rate of 1 USD = 17 ZAR
-    const usdPrice = numericPrice / 17;
+    // Convert ZAR to USD at rate of 1 USD = 17.5 ZAR
+    const usdPrice = numericPrice / 17.5;
     return `$${Math.round(usdPrice)}`;
   }
   

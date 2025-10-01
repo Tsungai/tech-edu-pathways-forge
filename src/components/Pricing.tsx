@@ -176,7 +176,7 @@ export const Pricing = () => {
           </p>
           {currency === 'USD' && (
             <p className="text-sm text-gray-500">
-              * Prices converted from ZAR at rate of $1 = R17
+              * Prices converted from ZAR at rate of $1 = R17.5
             </p>
           )}
         </div>

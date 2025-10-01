@@ -1,11 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, Award } from "lucide-react";
+import { Clock, Users, Award, MapPin } from "lucide-react";
 import { CourseModal } from "./CourseModal";
 import { useState } from "react";
+import { useGeolocation } from "@/hooks/useGeolocation";
+import { convertPrice } from "@/utils/currency";
 
 export const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const { country, currency, loading } = useGeolocation();
+
+  const getDisplayPrice = (price: string) => {
+    return convertPrice(price, currency);
+  };
+
+  const getCountryFlag = (countryCode: string) => {
+    const flags: { [key: string]: string } = {
+      'ZA': '🇿🇦',
+      'ZW': '🇿🇼'
+    };
+    return flags[countryCode] || '🌍';
+  };
 
   const regularCourses = [
     {
@@ -165,6 +180,18 @@ export const Courses = () => {
   return (
     <section id="courses" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Location Indicator */}
+        <div className="flex items-center justify-center gap-2 mb-8">
+          <MapPin className="h-5 w-5 text-emerald-600" />
+          {loading ? (
+            <span className="text-sm text-gray-600">Detecting location...</span>
+          ) : (
+            <span className="text-sm text-gray-600">
+              {getCountryFlag(country)} Prices shown in {currency}
+            </span>
+          )}
+        </div>
+
         {/* Evening Programs Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
@@ -179,7 +206,7 @@ export const Courses = () => {
               with our intensive evening programs designed for career changers.
             </p>
             <div className="mt-4 text-2xl font-bold text-violet-600">
-              R24,000 per program
+              {getDisplayPrice("R24,000")} per program
             </div>
           </div>
 
@@ -234,7 +261,7 @@ export const Courses = () => {
                   </div>
 
                   <div className="text-2xl font-bold text-violet-600 pt-2">
-                    {course.price}
+                    {getDisplayPrice(course.price)}
                   </div>
                 </div>
 
@@ -282,10 +309,10 @@ export const Courses = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-emerald-600">
-                    {course.price}
+                    {getDisplayPrice(course.price)}
                   </div>
                   <div className="text-sm text-gray-600">
-                    or {course.upfront} upfront
+                    or {getDisplayPrice(course.upfront)} upfront
                   </div>
                 </div>
               </div>
@@ -337,6 +364,14 @@ export const Courses = () => {
           ))}
         </div>
       </div>
+
+      {currency === 'USD' && (
+        <div className="text-center mt-8">
+          <p className="text-sm text-gray-500">
+            * Prices converted from ZAR at rate of $1 = R17.5
+          </p>
+        </div>
+      )}
 
       <CourseModal
         isOpen={!!selectedCourse}
