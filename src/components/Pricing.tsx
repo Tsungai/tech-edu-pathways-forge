@@ -25,7 +25,7 @@ export const Pricing = () => {
         "Flexible learning schedule"
       ],
       popular: false,
-      color: "border-gray-200"
+      color: "border-border"
     },
     {
       name: "TechEdu Standard",
@@ -45,7 +45,7 @@ export const Pricing = () => {
         "Internship opportunities"
       ],
       popular: true,
-      color: "border-emerald-500 ring-2 ring-emerald-100"
+      color: "border-primary ring-2 ring-primary/20"
     },
     {
       name: "Premium Plus",
@@ -65,7 +65,7 @@ export const Pricing = () => {
         "Continuing education credits"
       ],
       popular: false,
-      color: "border-gray-200"
+      color: "border-border"
     }
   ];
 
@@ -86,19 +86,19 @@ export const Pricing = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <MapPin className="h-5 w-5 text-emerald-600" />
+            <MapPin className="h-5 w-5 text-primary" />
             {loading ? (
               <span className="text-sm text-gray-600">Detecting location...</span>
             ) : (
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-muted-foreground">
                 {getCountryFlag(country)} Prices shown in {currency}
               </span>
             )}
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Choose Your Learning Path
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             All plans include industry certifications and job placement assistance.
           </p>
         </div>
@@ -111,7 +111,7 @@ export const Pricing = () => {
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-emerald-500 text-white px-4 py-2 flex items-center gap-1">
+                  <Badge className="bg-primary text-primary-foreground px-4 py-2 flex items-center gap-1">
                     <Star className="h-4 w-4" />
                     Most Popular
                   </Badge>
@@ -119,22 +119,22 @@ export const Pricing = () => {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-foreground mb-2">
                   {tier.name}
                 </h3>
-                <p className="text-emerald-600 font-medium mb-4">
+                <p className="text-primary font-medium mb-4">
                   {tier.subtitle}
                 </p>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span className="text-4xl font-bold text-foreground">
                     {getDisplayPrice(tier.price)}
                   </span>
-                  <span className="text-gray-600">{tier.period}</span>
+                  <span className="text-muted-foreground">{tier.period}</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                   or {getDisplayPrice(tier.upfront)}
                 </p>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   {tier.description}
                 </p>
               </div>
@@ -142,19 +142,16 @@ export const Pricing = () => {
               <div className="space-y-4 mb-8">
                 {tier.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground">{feature}</span>
                   </div>
                 ))}
               </div>
 
               <Button 
-                className={`w-full ${
-                  tier.popular 
-                    ? 'bg-emerald-500 hover:bg-emerald-600 text-white' 
-                    : 'bg-gray-900 hover:bg-gray-800 text-white'
-                }`}
+                variant={tier.popular ? "default" : "secondary"}
                 size="lg"
+                className="w-full"
               >
                 Get Started
               </Button>
@@ -164,17 +161,17 @@ export const Pricing = () => {
 
         {/* Additional Info */}
         <div className="text-center space-y-4">
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             🎓 All courses include industry-recognized certifications
           </p>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             💼 85% job placement rate within 6 months of graduation
           </p>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             🔄 Flexible payment plans available - contact us for custom options
           </p>
           {currency === 'USD' && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground/70">
               * Prices converted from ZAR at rate of $1 = R17.5
             </p>
           )}

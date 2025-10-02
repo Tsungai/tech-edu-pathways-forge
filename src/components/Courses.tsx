@@ -178,15 +178,15 @@ export const Courses = () => {
   ];
 
   return (
-    <section id="courses" className="py-20 bg-gray-50">
+    <section id="courses" className="py-20 bg-accent">
       <div className="max-w-7xl mx-auto px-6">
         {/* Location Indicator */}
         <div className="flex items-center justify-center gap-2 mb-8">
-          <MapPin className="h-5 w-5 text-emerald-600" />
+          <MapPin className="h-5 w-5 text-primary" />
           {loading ? (
-            <span className="text-sm text-gray-600">Detecting location...</span>
+            <span className="text-sm text-muted-foreground">Detecting location...</span>
           ) : (
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-muted-foreground">
               {getCountryFlag(country)} Prices shown in {currency}
             </span>
           )}
@@ -195,21 +195,21 @@ export const Courses = () => {
         {/* Evening Programs Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <div className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-sm font-bold mb-4">
+            <div className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground text-sm font-bold mb-4">
               🌙 NEW: EVENING PROGRAMS FOR CAREER CHANGERS
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               5-Month Evening Programs
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Perfect for working professionals. Mon-Fri, 1 hour per day. Transform your career 
               with our intensive evening programs designed for career changers.
             </p>
             <div className="mt-4 space-y-2">
-              <div className="text-2xl font-bold text-violet-600">
+              <div className="text-2xl font-bold text-secondary">
                 {getDisplayPrice("R4,000")}/month for 6 months
               </div>
-              <div className="text-lg text-gray-600">
+              <div className="text-lg text-muted-foreground">
                 or {getDisplayPrice("R24,000")} upfront
               </div>
             </div>
@@ -222,13 +222,13 @@ export const Courses = () => {
                 className={`relative p-6 rounded-2xl border-2 ${course.color} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
               >
                 <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground text-xs font-bold">
                     {course.students}
                   </span>
                 </div>
                 
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 pr-16">
+                  <h3 className="text-xl font-bold text-foreground mb-2 pr-16">
                     {course.title}
                   </h3>
                   <div className="flex items-center gap-2 mb-2">
@@ -241,20 +241,20 @@ export const Courses = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {course.description}
                 </p>
 
                 <div className="space-y-3 mb-4">
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     {course.duration} • Mon-Fri, 1hr
                   </div>
 
                   <div>
                     <div className="flex items-center gap-1 mb-2">
-                      <Award className="h-4 w-4 text-gray-600" />
-                      <span className="font-medium text-gray-700 text-sm">Skills:</span>
+                      <Award className="h-4 w-4 text-muted-foreground" />
+                      <span className="font-medium text-foreground text-sm">Skills:</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
                       {course.skills.map((skill, skillIndex) => (
@@ -266,17 +266,17 @@ export const Courses = () => {
                   </div>
 
                   <div className="pt-2 space-y-1">
-                    <div className="text-2xl font-bold text-violet-600">
+                    <div className="text-2xl font-bold text-secondary">
                       {getDisplayPrice("R4,000")}/month
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       for 6 months or {getDisplayPrice("R24,000")} upfront
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <Button className="w-full bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600">
+                  <Button className="w-full bg-gradient-to-r from-secondary to-secondary/80">
                     Enroll Now
                   </Button>
                   <Button 
@@ -294,10 +294,10 @@ export const Courses = () => {
 
         {/* Regular Courses Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Full-Time Course Catalog
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive tech courses designed to take you from beginner to job-ready professional.
           </p>
         </div>
@@ -310,7 +310,7 @@ export const Courses = () => {
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
                     {course.title}
                   </h3>
                   <Badge variant="secondary" className="mb-3">
@@ -318,21 +318,21 @@ export const Courses = () => {
                   </Badge>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-emerald-600">
+                  <div className="text-2xl font-bold text-primary">
                     {getDisplayPrice(course.price)}/month
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-muted-foreground">
                     for 6 months or {getDisplayPrice(course.upfront)} upfront
                   </div>
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 {course.description}
               </p>
 
               <div className="space-y-4 mb-6">
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
                     {course.duration}
@@ -345,8 +345,8 @@ export const Courses = () => {
 
                 <div>
                   <div className="flex items-center gap-1 mb-2">
-                    <Award className="h-4 w-4 text-gray-600" />
-                    <span className="font-medium text-gray-700">What you'll learn:</span>
+                    <Award className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-foreground">What you'll learn:</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {course.skills.map((skill, skillIndex) => (
@@ -359,7 +359,7 @@ export const Courses = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button className="flex-1 bg-emerald-500 hover:bg-emerald-600">
+                <Button className="flex-1">
                   Enroll Now
                 </Button>
                 <Button 
@@ -377,7 +377,7 @@ export const Courses = () => {
 
       {currency === 'USD' && (
         <div className="text-center mt-8">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground/70">
             * Prices converted from ZAR at rate of $1 = R17.5
           </p>
         </div>

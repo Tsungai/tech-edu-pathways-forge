@@ -17,13 +17,13 @@ export const Partners = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Our partnerships with leading technology companies ensure you receive 
             the most current and industry-relevant education.
           </p>
@@ -31,19 +31,19 @@ export const Partners = () => {
 
         {/* Certification Partners */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-gray-900 text-center mb-8">
+          <h3 className="text-2xl font-semibold text-foreground text-center mb-8">
             Certification Partners
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificationPartners.map((partner, index) => (
               <div 
                 key={index}
-                className="p-6 rounded-xl border border-gray-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 text-center"
+                className="p-6 rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 text-center"
               >
-                <h4 className="text-xl font-bold text-gray-900 mb-2">
+                <h4 className="text-xl font-bold text-foreground mb-2">
                   {partner.name}
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   {partner.description}
                 </p>
               </div>
@@ -53,7 +53,7 @@ export const Partners = () => {
 
         {/* Industry Partners */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 text-center mb-8">
+          <h3 className="text-2xl font-semibold text-foreground text-center mb-8">
             Industry Partners & Job Placement Network
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
@@ -61,13 +61,13 @@ export const Partners = () => {
               <Badge 
                 key={index}
                 variant="outline" 
-                className="px-4 py-2 text-sm border-emerald-200 text-emerald-700 hover:bg-emerald-50 transition-colors"
+                className="px-4 py-2 text-sm border-primary/30 text-primary hover:bg-accent transition-colors"
               >
                 {partner}
               </Badge>
             ))}
           </div>
-          <p className="text-center text-gray-600 mt-8">
+          <p className="text-center text-muted-foreground mt-8">
             Our graduates have secured positions at these leading companies across South Africa
           </p>
         </div>
