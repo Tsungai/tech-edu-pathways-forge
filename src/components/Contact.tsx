@@ -1,11 +1,61 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    course: "",
+    message: "",
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-form", {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Application submitted!",
+        description: "Our admissions team will contact you soon.",
+      });
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        course: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto px-6">
@@ -26,19 +76,33 @@ export const Contact = () => {
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Apply Now
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     First Name
                   </label>
-                    <Input placeholder="Enter your first name" />
+                    <Input
+                      required
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      placeholder="Enter your first name"
+                    />
                   </div>
                   <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Last Name
                   </label>
-                    <Input placeholder="Enter your last name" />
+                    <Input
+                      required
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      placeholder="Enter your last name"
+                    />
                   </div>
                 </div>
                 
@@ -46,22 +110,44 @@ export const Contact = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Email Address
                   </label>
-                  <Input type="email" placeholder="your.email@example.com" />
+                  <Input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    placeholder="your.email@example.com"
+                  />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Phone Number
                   </label>
-                  <Input placeholder="+27 XX XXX XXXX" />
+                  <Input
+                    required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    placeholder="+27 XX XXX XXXX"
+                  />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Course Interest
                   </label>
-                  <select className="w-full p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-ring bg-background text-foreground">
-                    <option>Select a course</option>
+                  <select
+                    required
+                    value={formData.course}
+                    onChange={(e) =>
+                      setFormData({ ...formData, course: e.target.value })
+                    }
+                    className="w-full p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-ring bg-background text-foreground"
+                  >
+                    <option value="">Select a course</option>
                     <option>Introduction to Tech</option>
                     <option>Software Engineering</option>
                     <option>Web Development</option>
@@ -75,14 +161,19 @@ export const Contact = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
-                  <Textarea 
+                  <Textarea
+                    required
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder="Tell us about your goals and any questions you have..."
                     rows={4}
                   />
                 </div>
                 
-                <Button className="w-full" size="lg">
-                  Submit Application
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </CardContent>
