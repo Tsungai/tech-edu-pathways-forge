@@ -25,11 +25,22 @@ export const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke("send-contact-form", {
-        body: formData,
+      // Save to prospective_users table
+      const { error: dbError } = await supabase.from("prospective_users").insert({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        course_interest: formData.course,
+        message: formData.message,
       });
 
-      if (error) throw error;
+      if (dbError) throw dbError;
+
+      // Also send notification email
+      await supabase.functions.invoke("send-contact-form", {
+        body: formData,
+      });
 
       toast({
         title: "Application submitted!",

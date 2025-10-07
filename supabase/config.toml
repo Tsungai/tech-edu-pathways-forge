@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.send-quick-contact]
 verify_jwt = false
+
+[functions.create-user-account]
+verify_jwt = true
