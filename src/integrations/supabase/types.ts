@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      enrollments: {
+        Row: {
+          activated_at: string | null
+          completed_at: string | null
+          current_week: number | null
+          enrolled_at: string
+          enrollment_id: string
+          id: string
+          program_id: string
+          status: string
+          student_id: string
+        }
+        Insert: {
+          activated_at?: string | null
+          completed_at?: string | null
+          current_week?: number | null
+          enrolled_at?: string
+          enrollment_id: string
+          id?: string
+          program_id: string
+          status?: string
+          student_id: string
+        }
+        Update: {
+          activated_at?: string | null
+          completed_at?: string | null
+          current_week?: number | null
+          enrolled_at?: string
+          enrollment_id?: string
+          id?: string
+          program_id?: string
+          status?: string
+          student_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "enrollments_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -68,6 +112,73 @@ export type Database = {
         }
         Relationships: []
       }
+      subjects: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          program_id: string
+          updated_at: string
+          week_number: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          program_id: string
+          updated_at?: string
+          week_number?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          program_id?: string
+          updated_at?: string
+          week_number?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subjects_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teacher_assignments: {
+        Row: {
+          assigned_at: string
+          id: string
+          subject_id: string
+          teacher_id: string
+        }
+        Insert: {
+          assigned_at?: string
+          id?: string
+          subject_id: string
+          teacher_id: string
+        }
+        Update: {
+          assigned_at?: string
+          id?: string
+          subject_id?: string
+          teacher_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "teacher_assignments_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -94,6 +205,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      generate_enrollment_id: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
