@@ -110,7 +110,7 @@ serve(async (req) => {
         <h2>Login Credentials:</h2>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Temporary Password:</strong> ${tempPassword}</p>
-        <p><strong>Login URL:</strong> <a href="${Deno.env.get("SUPABASE_URL")?.replace("https://", "https://tech-edu-pathways-forge.lovable.app")}/auth">Login Here</a></p>
+        <p><strong>Login URL:</strong> <a href="https://techedu.academy/auth">Login Here</a></p>
         <p><strong>Important:</strong> Please change your password after your first login.</p>
         <p>Best regards,<br>TechEdu Academy Team</p>
       `;
@@ -123,7 +123,7 @@ serve(async (req) => {
         <h2>Login Credentials:</h2>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Temporary Password:</strong> ${tempPassword}</p>
-        <p><strong>Login URL:</strong> <a href="${Deno.env.get("SUPABASE_URL")?.replace("https://", "https://tech-edu-pathways-forge.lovable.app")}/auth">Login Here</a></p>
+        <p><strong>Login URL:</strong> <a href="https://techedu.academy/auth">Login Here</a></p>
         <p><strong>Important:</strong> You'll need to confirm your details and change your password on first login.</p>
         <p>Best regards,<br>TechEdu Academy Team</p>
       `;

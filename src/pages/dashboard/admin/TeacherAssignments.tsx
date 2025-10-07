@@ -41,7 +41,7 @@ export default function TeacherAssignments() {
     },
   });
 
-  const { data: subjects } = useQuery({
+  const { data: subjects, isError: subjectsError, error: subjectsErrorDetails } = useQuery({
     queryKey: ["subjects-with-programs"],
     queryFn: async () => {
       const { data: subjectsData, error: subjectsError } = await supabase
@@ -49,18 +49,27 @@ export default function TeacherAssignments() {
         .select("*")
         .order("name");
 
-      if (subjectsError) throw subjectsError;
+      if (subjectsError) {
+        console.error("Error fetching subjects:", subjectsError);
+        throw subjectsError;
+      }
 
       const { data: programs, error: programsError } = await supabase
         .from("programs")
         .select("*");
 
-      if (programsError) throw programsError;
+      if (programsError) {
+        console.error("Error fetching programs:", programsError);
+        throw programsError;
+      }
 
-      return subjectsData?.map((subject) => ({
+      const result = subjectsData?.map((subject) => ({
         ...subject,
         programs: programs?.find((p) => p.id === subject.program_id),
       }));
+      
+      console.log("Subjects loaded:", result);
+      return result;
     },
   });
 
@@ -191,12 +200,22 @@ export default function TeacherAssignments() {
                     <SelectTrigger>
                       <SelectValue placeholder="Select subject" />
                     </SelectTrigger>
-                    <SelectContent>
-                      {subjects?.map((subject: any) => (
-                        <SelectItem key={subject.id} value={subject.id}>
-                          {subject.name} - {subject.programs?.name}
-                        </SelectItem>
-                      ))}
+                    <SelectContent className="bg-background z-50">
+                      {subjectsError ? (
+                        <div className="px-2 py-1 text-sm text-destructive">
+                          Error loading subjects
+                        </div>
+                      ) : !subjects || subjects.length === 0 ? (
+                        <div className="px-2 py-1 text-sm text-muted-foreground">
+                          No subjects available. Create subjects first.
+                        </div>
+                      ) : (
+                        subjects.map((subject: any) => (
+                          <SelectItem key={subject.id} value={subject.id}>
+                            {subject.name} - {subject.programs?.name || "No program"}
+                          </SelectItem>
+                        ))
+                      )}
                     </SelectContent>
                   </Select>
                 </div>
