@@ -69,6 +69,7 @@ export type Database = {
           program_id: string
           status: string
           student_id: string
+          subject_id: string | null
         }
         Insert: {
           activated_at?: string | null
@@ -80,6 +81,7 @@ export type Database = {
           program_id: string
           status?: string
           student_id: string
+          subject_id?: string | null
         }
         Update: {
           activated_at?: string | null
@@ -91,6 +93,7 @@ export type Database = {
           program_id?: string
           status?: string
           student_id?: string
+          subject_id?: string | null
         }
         Relationships: [
           {
@@ -98,6 +101,13 @@ export type Database = {
             columns: ["program_id"]
             isOneToOne: false
             referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "enrollments_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
             referencedColumns: ["id"]
           },
         ]

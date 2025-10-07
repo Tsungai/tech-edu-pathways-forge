@@ -17,6 +17,7 @@ export default function Enrollments() {
   const [formData, setFormData] = useState({
     student_id: "",
     program_id: "",
+    subject_id: "",
   });
   const queryClient = useQueryClient();
 
@@ -53,6 +54,21 @@ export default function Enrollments() {
     },
   });
 
+  const { data: subjects } = useQuery({
+    queryKey: ["subjects", formData.program_id],
+    queryFn: async () => {
+      if (!formData.program_id) return [];
+      const { data, error } = await supabase
+        .from("subjects")
+        .select("*")
+        .eq("program_id", formData.program_id)
+        .order("name");
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!formData.program_id,
+  });
+
   const { data: enrollments, isLoading } = useQuery({
     queryKey: ["enrollments"],
     queryFn: async () => {
@@ -77,11 +93,19 @@ export default function Enrollments() {
       
       if (programsError) throw programsError;
 
+      // Get subjects
+      const { data: subjects, error: subjectsError } = await supabase
+        .from("subjects")
+        .select("*");
+      
+      if (subjectsError) throw subjectsError;
+
       // Combine data
       return enrollmentsData?.map((enrollment) => ({
         ...enrollment,
         profiles: profiles?.find((p) => p.id === enrollment.student_id),
         programs: programs?.find((p) => p.id === enrollment.program_id),
+        subjects: subjects?.find((s) => s.id === enrollment.subject_id),
       }));
     },
   });
@@ -95,7 +119,7 @@ export default function Enrollments() {
       queryClient.invalidateQueries({ queryKey: ["enrollments"] });
       toast.success("Student enrolled successfully");
       setOpen(false);
-      setFormData({ student_id: "", program_id: "" });
+      setFormData({ student_id: "", program_id: "", subject_id: "" });
     },
     onError: (error: any) => {
       toast.error(error.message);
@@ -156,7 +180,7 @@ export default function Enrollments() {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Enroll Student</DialogTitle>
-                <DialogDescription>Assign a student to a program</DialogDescription>
+                <DialogDescription>Assign a student to a program and subject cohort</DialogDescription>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
@@ -182,7 +206,7 @@ export default function Enrollments() {
                   <Label htmlFor="program">Program</Label>
                   <Select
                     value={formData.program_id}
-                    onValueChange={(value) => setFormData({ ...formData, program_id: value })}
+                    onValueChange={(value) => setFormData({ ...formData, program_id: value, subject_id: "" })}
                     required
                   >
                     <SelectTrigger>
@@ -192,6 +216,26 @@ export default function Enrollments() {
                       {programs?.map((program) => (
                         <SelectItem key={program.id} value={program.id}>
                           {program.name} ({program.type})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject (Cohort)</Label>
+                  <Select
+                    value={formData.subject_id}
+                    onValueChange={(value) => setFormData({ ...formData, subject_id: value })}
+                    required
+                    disabled={!formData.program_id}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder={formData.program_id ? "Select subject cohort" : "Select program first"} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {subjects?.map((subject) => (
+                        <SelectItem key={subject.id} value={subject.id}>
+                          {subject.name}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -220,6 +264,7 @@ export default function Enrollments() {
                     <TableHead>Enrollment ID</TableHead>
                     <TableHead>Student</TableHead>
                     <TableHead>Program</TableHead>
+                    <TableHead>Subject (Cohort)</TableHead>
                     <TableHead>Week</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Enrolled</TableHead>
@@ -237,6 +282,7 @@ export default function Enrollments() {
                         </div>
                       </TableCell>
                       <TableCell>{enrollment.programs?.name}</TableCell>
+                      <TableCell>{enrollment.subjects?.name || "—"}</TableCell>
                       <TableCell>{enrollment.current_week}/20</TableCell>
                       <TableCell>
                         <Badge variant={getStatusBadge(enrollment.status) as any}>
