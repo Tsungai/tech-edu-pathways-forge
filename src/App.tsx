@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Setup from "./pages/Setup";
 import StudentDashboard from "./pages/dashboard/StudentDashboard";
+import MyCourse from "./pages/dashboard/student/MyCourse";
+import WeeklyLessons from "./pages/dashboard/student/WeeklyLessons";
 import TeacherDashboard from "./pages/dashboard/TeacherDashboard";
 import MySubjects from "./pages/dashboard/teacher/MySubjects";
 import WeeklyContent from "./pages/dashboard/teacher/WeeklyContent";
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/setup" element={<Setup />} />
             <Route path="/dashboard/student" element={<ProtectedRoute requiredRole="student"><StudentDashboard /></ProtectedRoute>} />
+            <Route path="/dashboard/student/course" element={<ProtectedRoute requiredRole="student"><MyCourse /></ProtectedRoute>} />
+            <Route path="/dashboard/student/lessons" element={<ProtectedRoute requiredRole="student"><WeeklyLessons /></ProtectedRoute>} />
             <Route path="/dashboard/teacher" element={<ProtectedRoute requiredRole="teacher"><TeacherDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/teacher/subjects" element={<ProtectedRoute requiredRole="teacher"><MySubjects /></ProtectedRoute>} />
             <Route path="/dashboard/teacher/weeks" element={<ProtectedRoute requiredRole="teacher"><WeeklyContent /></ProtectedRoute>} />
