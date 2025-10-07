@@ -1,27 +1,22 @@
 import { useAuth } from "@/hooks/useAuth";
-import { Button } from "@/components/ui/button";
+import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, BookOpen, UserCheck, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function AdminDashboard() {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-          <Button onClick={signOut} variant="outline">Sign Out</Button>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2">System Administration</h2>
+    <AdminLayout>
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-3xl font-bold">System Administration</h2>
           <p className="text-muted-foreground">{user?.email}</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Users</CardTitle>
@@ -74,18 +69,26 @@ export default function AdminDashboard() {
               <CardDescription>Common administrative tasks</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <Button className="w-full" variant="outline">
-                Manage Users
-              </Button>
-              <Button className="w-full" variant="outline">
-                Manage Programs
-              </Button>
-              <Button className="w-full" variant="outline">
-                Assign Teachers
-              </Button>
-              <Button className="w-full" variant="outline">
-                View Reports
-              </Button>
+              <Link to="/dashboard/admin/users">
+                <Button className="w-full" variant="outline">
+                  Manage Users
+                </Button>
+              </Link>
+              <Link to="/dashboard/admin/programs">
+                <Button className="w-full" variant="outline">
+                  Manage Programs
+                </Button>
+              </Link>
+              <Link to="/dashboard/admin/subjects">
+                <Button className="w-full" variant="outline">
+                  Manage Subjects
+                </Button>
+              </Link>
+              <Link to="/dashboard/admin/enrollments">
+                <Button className="w-full" variant="outline">
+                  View Enrollments
+                </Button>
+              </Link>
             </CardContent>
           </Card>
 
@@ -112,7 +115,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
         </div>
-      </main>
-    </div>
+      </div>
+    </AdminLayout>
   );
 }
