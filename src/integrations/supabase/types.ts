@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      capstones: {
+        Row: {
+          created_at: string
+          description: string
+          due_date: string | null
+          id: string
+          instructions: string | null
+          requirements: string | null
+          title: string
+          updated_at: string
+          week_id: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          due_date?: string | null
+          id?: string
+          instructions?: string | null
+          requirements?: string | null
+          title: string
+          updated_at?: string
+          week_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          due_date?: string | null
+          id?: string
+          instructions?: string | null
+          requirements?: string | null
+          title?: string
+          updated_at?: string
+          week_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "capstones_week_id_fkey"
+            columns: ["week_id"]
+            isOneToOne: true
+            referencedRelation: "weeks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       enrollments: {
         Row: {
           activated_at: string | null
@@ -54,6 +98,47 @@ export type Database = {
             columns: ["program_id"]
             isOneToOne: false
             referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      grades: {
+        Row: {
+          feedback: string | null
+          graded_at: string
+          id: string
+          score: number | null
+          status: string
+          submission_id: string
+          teacher_id: string
+          updated_at: string
+        }
+        Insert: {
+          feedback?: string | null
+          graded_at?: string
+          id?: string
+          score?: number | null
+          status?: string
+          submission_id: string
+          teacher_id: string
+          updated_at?: string
+        }
+        Update: {
+          feedback?: string | null
+          graded_at?: string
+          id?: string
+          score?: number | null
+          status?: string
+          submission_id?: string
+          teacher_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "grades_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: true
+            referencedRelation: "submissions"
             referencedColumns: ["id"]
           },
         ]
@@ -112,6 +197,47 @@ export type Database = {
         }
         Relationships: []
       }
+      resources: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          order_index: number | null
+          title: string
+          type: string
+          url: string
+          week_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          title: string
+          type: string
+          url: string
+          week_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          title?: string
+          type?: string
+          url?: string
+          week_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "resources_week_id_fkey"
+            columns: ["week_id"]
+            isOneToOne: false
+            referencedRelation: "weeks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       subjects: {
         Row: {
           created_at: string
@@ -146,6 +272,95 @@ export type Database = {
             columns: ["program_id"]
             isOneToOne: false
             referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      submissions: {
+        Row: {
+          capstone_id: string | null
+          github_url: string
+          id: string
+          notes: string | null
+          student_id: string
+          submitted_at: string
+          task_id: string | null
+        }
+        Insert: {
+          capstone_id?: string | null
+          github_url: string
+          id?: string
+          notes?: string | null
+          student_id: string
+          submitted_at?: string
+          task_id?: string | null
+        }
+        Update: {
+          capstone_id?: string | null
+          github_url?: string
+          id?: string
+          notes?: string | null
+          student_id?: string
+          submitted_at?: string
+          task_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "submissions_capstone_id_fkey"
+            columns: ["capstone_id"]
+            isOneToOne: false
+            referencedRelation: "capstones"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "submissions_task_id_fkey"
+            columns: ["task_id"]
+            isOneToOne: false
+            referencedRelation: "tasks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tasks: {
+        Row: {
+          created_at: string
+          day_number: number
+          description: string
+          due_date: string | null
+          id: string
+          instructions: string | null
+          title: string
+          updated_at: string
+          week_id: string
+        }
+        Insert: {
+          created_at?: string
+          day_number: number
+          description: string
+          due_date?: string | null
+          id?: string
+          instructions?: string | null
+          title: string
+          updated_at?: string
+          week_id: string
+        }
+        Update: {
+          created_at?: string
+          day_number?: number
+          description?: string
+          due_date?: string | null
+          id?: string
+          instructions?: string | null
+          title?: string
+          updated_at?: string
+          week_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_week_id_fkey"
+            columns: ["week_id"]
+            isOneToOne: false
+            referencedRelation: "weeks"
             referencedColumns: ["id"]
           },
         ]
@@ -199,6 +414,47 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      weeks: {
+        Row: {
+          created_at: string
+          id: string
+          is_published: boolean | null
+          objectives: string | null
+          subject_id: string
+          title: string
+          updated_at: string
+          week_number: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_published?: boolean | null
+          objectives?: string | null
+          subject_id: string
+          title: string
+          updated_at?: string
+          week_number: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_published?: boolean | null
+          objectives?: string | null
+          subject_id?: string
+          title?: string
+          updated_at?: string
+          week_number?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "weeks_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

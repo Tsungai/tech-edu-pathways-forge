@@ -17,6 +17,7 @@ const menuItems = [
   { title: "Programs", url: "/dashboard/admin/programs", icon: BookOpen },
   { title: "Subjects", url: "/dashboard/admin/subjects", icon: GraduationCap },
   { title: "Users", url: "/dashboard/admin/users", icon: Users },
+  { title: "Teacher Assignments", url: "/dashboard/admin/assignments", icon: UserCheck },
   { title: "Enrollments", url: "/dashboard/admin/enrollments", icon: UserCheck },
   { title: "Settings", url: "/dashboard/admin/settings", icon: Settings },
 ];
