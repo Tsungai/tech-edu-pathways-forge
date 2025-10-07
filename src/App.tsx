@@ -12,9 +12,11 @@ import Setup from "./pages/Setup";
 import StudentDashboard from "./pages/dashboard/StudentDashboard";
 import MyCourse from "./pages/dashboard/student/MyCourse";
 import WeeklyLessons from "./pages/dashboard/student/WeeklyLessons";
+import MyGrades from "./pages/dashboard/student/MyGrades";
 import TeacherDashboard from "./pages/dashboard/TeacherDashboard";
 import MySubjects from "./pages/dashboard/teacher/MySubjects";
 import WeeklyContent from "./pages/dashboard/teacher/WeeklyContent";
+import Submissions from "./pages/dashboard/teacher/Submissions";
 import AdminDashboard from "./pages/dashboard/AdminDashboard";
 import Programs from "./pages/dashboard/admin/Programs";
 import Subjects from "./pages/dashboard/admin/Subjects";
@@ -40,9 +42,11 @@ const App = () => (
             <Route path="/dashboard/student" element={<ProtectedRoute requiredRole="student"><StudentDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/student/course" element={<ProtectedRoute requiredRole="student"><MyCourse /></ProtectedRoute>} />
             <Route path="/dashboard/student/lessons" element={<ProtectedRoute requiredRole="student"><WeeklyLessons /></ProtectedRoute>} />
+            <Route path="/dashboard/student/grades" element={<ProtectedRoute requiredRole="student"><MyGrades /></ProtectedRoute>} />
             <Route path="/dashboard/teacher" element={<ProtectedRoute requiredRole="teacher"><TeacherDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/teacher/subjects" element={<ProtectedRoute requiredRole="teacher"><MySubjects /></ProtectedRoute>} />
             <Route path="/dashboard/teacher/weeks" element={<ProtectedRoute requiredRole="teacher"><WeeklyContent /></ProtectedRoute>} />
+            <Route path="/dashboard/teacher/submissions" element={<ProtectedRoute requiredRole="teacher"><Submissions /></ProtectedRoute>} />
             <Route path="/dashboard/admin" element={<ProtectedRoute requiredRole="admin"><AdminDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/admin/programs" element={<ProtectedRoute requiredRole="admin"><Programs /></ProtectedRoute>} />
             <Route path="/dashboard/admin/subjects" element={<ProtectedRoute requiredRole="admin"><Subjects /></ProtectedRoute>} />
