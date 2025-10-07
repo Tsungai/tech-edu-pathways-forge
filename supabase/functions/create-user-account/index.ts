@@ -130,7 +130,7 @@ serve(async (req) => {
     }
 
     await resend.emails.send({
-      from: "TechEdu Academy <onboarding@resend.dev>",
+      from: "TechEdu Academy <admissions@techedu.academy>",
       to: [email],
       subject: emailSubject,
       html: emailHtml,

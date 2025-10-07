@@ -25,7 +25,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send to info team
     const emailResponse = await resend.emails.send({
-      from: "TechEdu Academy <onboarding@resend.dev>",
+      from: "TechEdu Academy <admissions@techedu.academy>",
       to: ["info@techedu.academy"],
       replyTo: email,
       subject: `Quick Contact from ${name}`,
