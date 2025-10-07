@@ -19,7 +19,14 @@ export default function Auth() {
 
   useEffect(() => {
     if (user && userRole) {
-      navigate(`/dashboard/${userRole}`);
+      // Map roles to their dashboard routes
+      const dashboardMap: Record<string, string> = {
+        admin: "/dashboard/admin",
+        teacher: "/dashboard/teacher",
+        student: "/dashboard/student",
+        student_admin: "/dashboard/student-admin",
+      };
+      navigate(dashboardMap[userRole] || "/dashboard/student");
     }
   }, [user, userRole, navigate]);
 
