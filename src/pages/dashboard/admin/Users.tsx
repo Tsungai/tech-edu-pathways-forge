@@ -8,9 +8,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { UserPlus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Users() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { data: users, isLoading } = useQuery({
     queryKey: ["users"],
@@ -80,6 +82,10 @@ export default function Users() {
             <h2 className="text-3xl font-bold">Users</h2>
             <p className="text-muted-foreground">Manage user accounts and roles</p>
           </div>
+          <Button onClick={() => navigate("/dashboard/admin/create-user")}>
+            <UserPlus className="h-4 w-4 mr-2" />
+            Create User
+          </Button>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
