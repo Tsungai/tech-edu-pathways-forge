@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -17,9 +18,12 @@ export const Hero = () => {
           <a href="#courses" className="text-muted-foreground hover:text-primary transition-colors">Courses</a>
           <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
           <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Contact
-          </Button>
+          <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+          <Link to="/auth">
+            <Button className="bg-primary hover:bg-primary/90">
+              Login
+            </Button>
+          </Link>
         </div>
       </nav>
 
