@@ -217,8 +217,7 @@ export const Contact = () => {
                   <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary-foreground mb-1">Email Us</h4>
-                    <p className="text-muted-foreground">admissions@techedu.academy</p>
-                    <p className="text-muted-foreground">info@techedu.academy</p>
+                    <p className="text-muted-foreground">tsungaikatsuro@gmail.com</p>
                   </div>
                 </div>
                 
