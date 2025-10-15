@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useGeolocation } from "@/hooks/useGeolocation";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,6 +21,20 @@ export const Contact = () => {
     message: "",
   });
   const { toast } = useToast();
+  const { country, loading } = useGeolocation();
+  
+  const contactInfo = {
+    ZW: {
+      phone: "+263 78 209 2695",
+      address: "15 Bedford Court, Corner Leopold Takawira and Josiah Chinamano, Avenues, Harare, Zimbabwe"
+    },
+    ZA: {
+      phone: "+27 79 507 6751",
+      address: "31 Landsborough, Robertsham, South Africa"
+    }
+  };
+  
+  const currentContactInfo = contactInfo[country as 'ZW' | 'ZA'] || contactInfo.ZA;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -210,8 +226,11 @@ export const Contact = () => {
                   <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary-foreground mb-1">Call Us</h4>
-                    <p className="text-muted-foreground">+27 11 XXX XXXX</p>
-                    <p className="text-muted-foreground">WhatsApp: +27 XX XXX XXXX</p>
+                    {loading ? (
+                      <Skeleton className="h-5 w-40 mb-1" />
+                    ) : (
+                      <p className="text-muted-foreground">{currentContactInfo.phone}</p>
+                    )}
                   </div>
                 </div>
                 
@@ -219,8 +238,14 @@ export const Contact = () => {
                   <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">100% Online Learning</p>
-                    <p className="text-muted-foreground">Serving all of South Africa</p>
+                    {loading ? (
+                      <>
+                        <Skeleton className="h-5 w-64 mb-1" />
+                        <Skeleton className="h-5 w-48" />
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground">{currentContactInfo.address}</p>
+                    )}
                   </div>
                 </div>
                 
