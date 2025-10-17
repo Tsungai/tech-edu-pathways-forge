@@ -29,7 +29,7 @@ export const Contact = () => {
       address: "15 Bedford Court, Corner Leopold Takawira and Josiah Chinamano, Avenues, Harare, Zimbabwe"
     },
     ZA: {
-      phone: "+27 79 507 6751",
+      phone: "+27 76 835 3089",
       address: "31 Landsborough, Robertsham, South Africa"
     }
   };
