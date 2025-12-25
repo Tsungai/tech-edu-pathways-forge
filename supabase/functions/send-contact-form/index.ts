@@ -1,8 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -19,16 +17,28 @@ interface ContactFormRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log("send-contact-form function invoked");
+  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    const apiKey = Deno.env.get("RESEND_API_KEY");
+    console.log("RESEND_API_KEY exists:", !!apiKey);
+    
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
+    
+    const resend = new Resend(apiKey);
+    
     const { firstName, lastName, email, phone, course, message }: ContactFormRequest = await req.json();
+    console.log("Received form data:", { firstName, lastName, email, phone, course });
 
     // Send to admissions team
     const emailResponse = await resend.emails.send({
-      from: "TechEdu Academy <admissions@techedu.academy>",
+      from: "TechEdu Academy <onboarding@resend.dev>",
       to: ["tsungaikatsuro@gmail.com"],
       replyTo: email,
       subject: `New Application - ${firstName} ${lastName}`,
