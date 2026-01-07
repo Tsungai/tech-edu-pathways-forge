@@ -105,7 +105,7 @@ export const Courses = () => {
   const eveningPrograms = [
     {
       title: "Data Analyst Program",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
@@ -117,7 +117,7 @@ export const Courses = () => {
     },
     {
       title: "Social Media Management for Marketers",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
@@ -129,7 +129,7 @@ export const Courses = () => {
     },
     {
       title: "Full-Stack Web Development (MERN)",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
@@ -141,7 +141,7 @@ export const Courses = () => {
     },
     {
       title: "Digital Marketing & SEO",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
@@ -153,7 +153,7 @@ export const Courses = () => {
     },
     {
       title: "Project Management (Agile & Scrum)",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
@@ -165,7 +165,7 @@ export const Courses = () => {
     },
     {
       title: "Business Analysis & Process Improvement",
-      duration: "5 Months",
+      duration: "6 Months",
       level: "Career Change",
       students: "NEW",
       price: "R24,000",
