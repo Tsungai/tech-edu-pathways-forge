@@ -53,7 +53,7 @@ export const Hero = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="space-y-1">
                   <p className="text-primary font-semibold text-sm sm:text-base">
-                    🚀 Enrollment for next cohort closes on 20 February 2026
+                    Enrollment for next cohort closes on 20 February 2026
                   </p>
                   <p className="text-muted-foreground text-sm">
                     First cohort of 2026 starts on 22 February 2026
