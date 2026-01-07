@@ -199,7 +199,7 @@ export const Courses = () => {
               🌙 NEW: EVENING PROGRAMS FOR CAREER CHANGERS
             </div>
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              5-Month Evening Programs
+              6-Month Evening Programs
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Perfect for working professionals. Mon-Fri, 1 hour per day. Transform your career 
