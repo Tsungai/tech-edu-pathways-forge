@@ -26,7 +26,7 @@ export const StickyHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 backdrop-blur-md border-b border-slate-800/50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-950/80 via-slate-900/80 to-slate-950/80 backdrop-blur-md border-b border-slate-800/50 transition-all duration-300 ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
