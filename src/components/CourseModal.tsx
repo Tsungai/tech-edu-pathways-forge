@@ -318,8 +318,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "ICDL Foundation"
   },
   "Data Analyst Program": {
-    title: "Data Analyst Program (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Data Analyst Program (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Working Professionals",
     accreditation: "Data Analytics Certification",
     overview: "Master the art of data-driven decision making. This evening program teaches you to collect, clean, analyze, and visualize data to drive business decisions. Perfect for professionals looking to transition into analytics roles.",
@@ -380,8 +380,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "Data Analytics Professional Certificate"
   },
   "Social Media Management for Marketers": {
-    title: "Social Media Management for Marketers (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Social Media Management for Marketers (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Marketing Professionals",
     accreditation: "Social Media Marketing Certification",
     overview: "Become a social media expert. Learn to run campaigns, grow audiences, and measure impact across all major platforms. Master content creation, paid advertising, and analytics.",
@@ -442,8 +442,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "Social Media Marketing Professional Certificate"
   },
   "Full-Stack Web Development (MERN)": {
-    title: "Full-Stack Web Development MERN (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Full-Stack Web Development MERN (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Aspiring Developers",
     accreditation: "Full-Stack Development Certification",
     overview: "Build modern web applications from scratch. Master the MERN stack (MongoDB, Express, React, Node.js) and learn to create full-featured web applications. Perfect for career changers entering web development.",
@@ -504,8 +504,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "Full-Stack Web Development Professional Certificate"
   },
   "Digital Marketing & SEO": {
-    title: "Digital Marketing & SEO (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Digital Marketing & SEO (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Marketing Professionals",
     accreditation: "Google Digital Marketing & SEO Certification",
     overview: "Master the digital marketing landscape. Learn SEO, PPC, email marketing, analytics, and conversion optimization. Build complete multi-channel marketing campaigns.",
@@ -566,8 +566,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "Google Digital Marketing & E-Commerce Certificate"
   },
   "Project Management (Agile & Scrum)": {
-    title: "Project Management - Agile & Scrum (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Project Management - Agile & Scrum (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Team Leaders",
     accreditation: "PMP & Scrum Master Certification Track",
     overview: "Lead projects with confidence. Master Agile methodologies, Scrum ceremonies, and project management best practices. Learn to manage teams and deliver projects on time and within budget.",
@@ -628,8 +628,8 @@ const courseDetails: Record<string, CourseDetails> = {
     certification: "PMP Exam Prep & Scrum Master Certification Track"
   },
   "Business Analysis & Process Improvement": {
-    title: "Business Analysis & Process Improvement (5-Month Evening)",
-    duration: "5 Months (Mon-Fri, 1 Hour)",
+    title: "Business Analysis & Process Improvement (6-Month Evening)",
+    duration: "6 Months (Mon-Fri, 1 Hour)",
     audience: "Career Changers, Business Professionals",
     accreditation: "Business Analysis Professional Certification",
     overview: "Bridge business and technology. Learn requirements gathering, process mapping, data modeling, and business optimization. Master tools and techniques to improve organizational efficiency.",
