@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Partners } from "@/components/Partners";
 import { Contact } from "@/components/Contact";
 import { StickyHeader } from "@/components/StickyHeader";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Testimonials />
       <Partners />
       <Contact />
+      <Footer />
     </div>
   );
 };
