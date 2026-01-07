@@ -48,14 +48,32 @@ export const Hero = () => {
               </p>
             </div>
             
+            {/* Enrollment CTA Banner */}
+            <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 rounded-xl p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <p className="text-primary font-semibold text-sm sm:text-base">
+                    🚀 Enrollment for next cohort closes on 20 February 2026
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    First cohort of 2026 starts on 22 February 2026
+                  </p>
+                </div>
+                <a href="#contact">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 whitespace-nowrap">
+                    Enroll Now
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-4 text-lg">
-                Start Learning Today
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
-                View Courses
-              </Button>
+              <a href="#courses">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg w-full sm:w-auto">
+                  View Courses
+                </Button>
+              </a>
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-8">
