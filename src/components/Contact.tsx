@@ -84,7 +84,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-950 to-slate-900">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-950 to-slate-900">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-foreground mb-4">
