@@ -319,10 +319,10 @@ export const Courses = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-primary">
-                    {getDisplayPrice(course.price)}/month
+                    {getDisplayPrice(course.price)}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    for 6 months or {getDisplayPrice(course.upfront)} upfront
+                    or {getDisplayPrice(course.upfront)} upfront
                   </div>
                 </div>
               </div>
