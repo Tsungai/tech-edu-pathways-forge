@@ -13,7 +13,7 @@ export const About = () => {
                 Bridging the Gap in Tech Education
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Founded in 2021 by Hunter Katsuro and Precious Ratshana, Code and Cloud Academy was created to address 
+                Founded in 2021 by Hunter Katsuro and Precious Ratshana, TechEdu Academy was created to address 
                 the critical need for practical, affordable tech education in South Africa.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
