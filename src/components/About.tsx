@@ -13,7 +13,7 @@ export const About = () => {
                 Bridging the Gap in Tech Education
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Founded in 2021 by Tsungai Katsuro and Precious Ratshana, Code and Cloud Academy was created to address 
+                Founded in 2021 by Hunter Katsuro and Precious Ratshana, Code and Cloud Academy was created to address 
                 the critical need for practical, affordable tech education in South Africa.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -26,7 +26,7 @@ export const About = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="p-6 rounded-xl bg-accent border border-primary/20">
                 <Users className="h-8 w-8 text-primary mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Tsungai Katsuro - Co-Founder</h3>
+                <h3 className="font-semibold text-foreground mb-2">Hunter Katsuro - Co-Founder</h3>
                 <p className="text-muted-foreground text-sm">
                   15 years of experience in software engineering and edtech industries
                 </p>
