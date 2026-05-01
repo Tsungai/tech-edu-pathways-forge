@@ -27,6 +27,7 @@ import CreateUser from "./pages/dashboard/admin/CreateUser";
 import ProspectiveUsers from "./pages/dashboard/admin/ProspectiveUsers";
 import TeacherAssignments from "./pages/dashboard/admin/TeacherAssignments";
 import Enrollments from "./pages/dashboard/admin/Enrollments";
+import Analytics from "./pages/dashboard/admin/Analytics";
 import StudentAdminDashboard from "./pages/dashboard/student-admin/StudentAdminDashboard";
 import Students from "./pages/dashboard/student-admin/Students";
 import NotFound from "./pages/NotFound";
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/dashboard/admin/prospective" element={<ProtectedRoute requiredRole="admin"><ProspectiveUsers /></ProtectedRoute>} />
             <Route path="/dashboard/admin/assignments" element={<ProtectedRoute requiredRole="admin"><TeacherAssignments /></ProtectedRoute>} />
             <Route path="/dashboard/admin/enrollments" element={<ProtectedRoute requiredRole="admin"><Enrollments /></ProtectedRoute>} />
+            <Route path="/dashboard/admin/analytics" element={<ProtectedRoute requiredRole="admin"><Analytics /></ProtectedRoute>} />
             
             {/* Student Admin Routes */}
             <Route path="/dashboard/student-admin" element={<ProtectedRoute requiredRole="student_admin"><StudentAdminDashboard /></ProtectedRoute>} />

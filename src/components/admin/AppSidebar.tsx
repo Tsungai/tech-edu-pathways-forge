@@ -1,4 +1,4 @@
-import { Home, BookOpen, Users, UserCheck, GraduationCap, Settings } from "lucide-react";
+import { Home, BookOpen, Users, UserCheck, GraduationCap, Settings, BarChart3 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
   Sidebar,
@@ -20,6 +20,7 @@ const menuItems = [
   { title: "Prospective Students", url: "/dashboard/admin/prospective", icon: UserCheck },
   { title: "Teacher Assignments", url: "/dashboard/admin/assignments", icon: UserCheck },
   { title: "Enrollments", url: "/dashboard/admin/enrollments", icon: UserCheck },
+  { title: "Analytics", url: "/dashboard/admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/dashboard/admin/settings", icon: Settings },
 ];
 
