@@ -90,6 +90,28 @@ export const Courses = () => {
       color: "bg-rose-50 border-rose-200"
     },
     {
+      title: "No-Code / Low-Code App Development",
+      duration: "12 Weeks",
+      level: "Beginner",
+      students: "TRENDING",
+      price: "R5,399/month",
+      upfront: "R15,000",
+      description: "Build powerful web apps without writing code using Bubble, Webflow, and Make. Focus on real-world product building, automation, and launching MVPs fast.",
+      skills: ["Bubble & Webflow", "Make (Integromat)", "API Integrations", "MVP Development"],
+      color: "bg-teal-50 border-teal-200"
+    },
+    {
+      title: "Introduction to Generative AI for Business",
+      duration: "12 Weeks",
+      level: "Beginner",
+      students: "NEW",
+      price: "R5,399/month",
+      upfront: "R15,000",
+      description: "Use ChatGPT, Claude, Copilot, and Gemini to boost productivity, automate tasks, and enhance decisions. Designed for non-technical professionals.",
+      skills: ["Prompt Engineering", "AI Productivity", "Content Automation", "Responsible AI"],
+      color: "bg-fuchsia-50 border-fuchsia-200"
+    },
+    {
       title: "CodeStars (Under 18)",
       duration: "3 Months",
       level: "Beginner",
