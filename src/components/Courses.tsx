@@ -244,6 +244,30 @@ export const Courses = () => {
       skills: ["Kotlin", "Android Studio", "Firebase & APIs", "Google Play Publishing"],
       color: "bg-gradient-to-br from-lime-50 to-green-50 border-lime-300",
       isEvening: true
+    },
+    {
+      title: "No-Code / Low-Code App Development",
+      duration: "12 Weeks",
+      level: "Career Change",
+      students: "TRENDING",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Build full web apps without code using Bubble, Webflow, and Make. Launch MVPs and automate workflows fast.",
+      skills: ["Bubble & Webflow", "Make (Integromat)", "API Integrations", "MVP Development"],
+      color: "bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-300",
+      isEvening: true
+    },
+    {
+      title: "Introduction to Generative AI for Business",
+      duration: "12 Weeks",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Use ChatGPT, Claude, Copilot & Gemini to boost productivity and automate business workflows. For non-technical pros.",
+      skills: ["Prompt Engineering", "AI Productivity", "Content Automation", "Responsible AI"],
+      color: "bg-gradient-to-br from-fuchsia-50 to-pink-50 border-fuchsia-300",
+      isEvening: true
     }
   ];
 
