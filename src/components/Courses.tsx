@@ -174,6 +174,54 @@ export const Courses = () => {
       skills: ["Requirements Gathering", "Process Mapping", "Data Modeling", "Lean & Six Sigma"],
       color: "bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-300",
       isEvening: true
+    },
+    {
+      title: "Cybersecurity Essentials",
+      duration: "24 Weeks",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Secure systems, networks, and digital infrastructure. Covers ethical hacking, network & cloud security, and incident response.",
+      skills: ["Ethical Hacking", "Network Security", "Cloud Security", "CompTIA Security+"],
+      color: "bg-gradient-to-br from-slate-50 to-gray-100 border-slate-300",
+      isEvening: true
+    },
+    {
+      title: "Cloud Computing with AWS & Azure",
+      duration: "24 Weeks",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Master cloud infrastructure, DevOps, and deployment using AWS and Azure. Build scalable cloud systems.",
+      skills: ["AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", "Terraform"],
+      color: "bg-gradient-to-br from-sky-50 to-blue-50 border-sky-300",
+      isEvening: true
+    },
+    {
+      title: "Data Analytics with Power BI & Excel",
+      duration: "24 Weeks",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Transform raw data into insights using Excel, Power BI, and SQL. Build interactive dashboards and BI reports.",
+      skills: ["Excel & Pivot Tables", "Power BI & DAX", "SQL Analytics", "Data Storytelling"],
+      color: "bg-gradient-to-br from-yellow-50 to-amber-50 border-yellow-300",
+      isEvening: true
+    },
+    {
+      title: "Android App Development (Kotlin)",
+      duration: "24 Weeks",
+      level: "Career Change",
+      students: "NEW",
+      price: "R24,000",
+      upfront: "R24,000",
+      description: "Evening program (Mon-Fri, 1hr). Build, test, and publish Android apps using Kotlin and Android Studio. Includes Firebase, APIs, and Google Play deployment.",
+      skills: ["Kotlin", "Android Studio", "Firebase & APIs", "Google Play Publishing"],
+      color: "bg-gradient-to-br from-lime-50 to-green-50 border-lime-300",
+      isEvening: true
     }
   ];
 
