@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* TechEdu Academy design system — African tech-forward, dark by default on landing */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
   :root {
@@ -15,77 +15,80 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47% 11%;
 
-    --primary: 156 100% 50%;
-    --primary-foreground: 222 47% 8%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 32 100% 64%;
-    --secondary-foreground: 222 47% 8%;
+    --secondary: 220 70% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 156 80% 95%;
-    --accent-foreground: 156 90% 22%;
+    --accent: 160 60% 97%;
+    --accent-foreground: 160 84% 39%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 156 100% 50%;
+    --ring: 160 84% 39%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
+
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Deep navy / near-black canvas */
-    --background: 222 47% 6%;
+    --background: 222 47% 11%;
     --foreground: 0 0% 100%;
 
-    --card: 222 40% 10%;
+    --card: 217 33% 17%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 222 40% 10%;
+    --popover: 217 33% 17%;
     --popover-foreground: 0 0% 100%;
 
-    /* Electric green #00FF87 */
-    --primary: 152 100% 50%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Amber / gold #FFB347 */
-    --secondary: 32 100% 64%;
-    --secondary-foreground: 222 47% 6%;
+    --secondary: 220 70% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 20% 70%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 222 35% 13%;
-    --accent-foreground: 152 100% 50%;
+    --accent: 217 33% 20%;
+    --accent-foreground: 160 84% 39%;
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 16%;
-    --input: 222 30% 16%;
-    --ring: 152 100% 50%;
-
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 152 100% 50%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 30% 14%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 30% 16%;
-    --sidebar-ring: 152 100% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 160 84% 39%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -95,64 +98,6 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    @apply bg-background text-foreground;
   }
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Syne', 'DM Sans', system-ui, sans-serif;
-    letter-spacing: -0.02em;
-  }
-}
-
-@layer utilities {
-  /* Glass header */
-  .glass {
-    background: hsl(var(--background) / 0.55);
-    backdrop-filter: saturate(160%) blur(16px);
-    -webkit-backdrop-filter: saturate(160%) blur(16px);
-  }
-
-  /* Glow border on hover for cards */
-  .glow-border {
-    position: relative;
-    transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease;
-  }
-  .glow-border:hover {
-    border-color: hsl(var(--primary) / 0.55);
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.35), 0 12px 40px -10px hsl(var(--primary) / 0.35);
-    transform: translateY(-2px);
-  }
-
-  /* African-inspired geometric SVG background pattern (subtle) */
-  .pattern-tribal {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%2300FF87' stroke-opacity='0.07' stroke-width='1'><path d='M0 40 L40 0 L80 40 L40 80 Z'/><path d='M20 40 L40 20 L60 40 L40 60 Z'/><circle cx='40' cy='40' r='3'/></g></svg>");
-    background-size: 80px 80px;
-  }
-
-  /* Animated gradient mesh for hero */
-  .mesh-bg {
-    background:
-      radial-gradient(60rem 40rem at 12% 18%, hsl(152 100% 50% / 0.18), transparent 60%),
-      radial-gradient(50rem 36rem at 88% 22%, hsl(32 100% 64% / 0.16), transparent 60%),
-      radial-gradient(40rem 28rem at 50% 100%, hsl(212 100% 60% / 0.14), transparent 60%);
-    animation: mesh-shift 14s ease-in-out infinite alternate;
-  }
-
-  @keyframes mesh-shift {
-    0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
-    100% { background-position: 10% 10%, 90% 10%, 50% 90%; }
-  }
-
-  @keyframes ticker {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-ticker { animation: ticker 28s linear infinite; }
-
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .reveal { animation: fade-in-up .7s ease-out both; }
 }
