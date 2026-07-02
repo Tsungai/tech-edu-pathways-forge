@@ -53,10 +53,10 @@ export const Hero = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="space-y-1">
                   <p className="text-primary font-semibold text-sm sm:text-base">
-                    Enrollment for the next cohort closes on 5 June 2026
+                    Enrollment for the next cohort closes on 7 August 2026
                   </p>
                   <p className="text-muted-foreground text-sm">
-                    Classes start on 9 June 2026
+                    Classes start on 17 August 2026
                   </p>
                 </div>
                 <a href="#contact">
